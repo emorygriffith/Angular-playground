@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app = "">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
@@ -17,9 +17,26 @@
   </head>
   <body>
 
-    <div class="container">
-      <h1>Jam Finder</h1>
-    </div>
+<div ng-init="customers = [
+  {name:'John', age:25, gender:'boy'},
+  {name:'Jessie', age:30, gender:'girl'},
+  {name:'Johanna', age:28, gender:'girl'},
+  {name:'Joy', age:15, gender:'girl'},
+  {name:'Mary', age:28, gender:'girl'},
+  {name:'Peter', age:95, gender:'boy'},
+  {name:'Sebastian', age:50, gender:'boy'},
+  {name:'Erika', age:27, gender:'girl'},
+  {name:'Patrick', age:40, gender:'boy'},
+  {name:'Samantha', age:60, gender:'girl'}
+]">
+
+  <input type="text" ng-model="name"> {{ name }}
+
+  <ul>
+    <li ng-repeat="cust in customers | filter:name">{{ cust.name }} {{cust.age}}</li>
+  </ul>
+
+
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
